@@ -43,13 +43,12 @@ app.get("/players/", async (request, response) => {
 
 app.post("/players/", async (request, response) => {
   const playerDetails = request.body;
-  let { player_id, player_name, jersey_number, role } = playerDetails;
+  let { player_name, jersey_number, role } = playerDetails;
   const addPlayerDetails = `
   INSERT INTO
-    cricket_team(player_id, player_name, jersey_number, role)
+    cricket_team( player_name, jersey_number, role)
   VALUES
     (
-        '${player_id}',
         ${player_name},
         ${jersey_number},
         ${role}
@@ -57,7 +56,6 @@ app.post("/players/", async (request, response) => {
     `;
   const dbResponse = await db.run(addPlayerDetails);
   const playerId = dbResponse.player_id;
-  response.send({ playerId: playerId });
   response.send("Player Added to Team");
 });
 
