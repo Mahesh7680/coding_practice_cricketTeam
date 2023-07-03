@@ -137,3 +137,4 @@ Use `npm install` to install the packages.
 # coding_practice_cricketTeam
 
 # coding_practice_cricketTeam
+# coding_practice_6_covid19
